@@ -1,0 +1,55 @@
+SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    "Tableaux de Bord",
+                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "Voir tout",
+                    style: TextStyle(color: kDarkBlue),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const CourseGrid(),
+              const SizedBox(
+                height: 20,
+              ),
+              const PlaningHeader(),
+              const SizedBox(
+                height: 15,
+              ),
+              const PlaningGrid(),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text(
+                "Statistiques",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const StatisticsGrid(),
+              const SizedBox(
+                height: 15,
+              ),
+              const ActivityHeader(),
+              const ChartContainer(chart: BarChartContent())
+            ],
+          ),
+        ),
+      ),

@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 class MontantTransfertPage extends StatefulWidget {
   final String contact;
   final Function(String) onAmountChanged;
-  final bool isButtonEnabled;
+  // final bool isButtonEnabled;
 
   MontantTransfertPage({
     required this.contact,
     required this.onAmountChanged,
-    required this.isButtonEnabled,
+   
   });
 
   @override
@@ -54,7 +54,7 @@ class _MontantTransfertPageState extends State<MontantTransfertPage> {
             TextField(
               cursorColor: Color.fromARGB(255, 211, 116, 14),
               decoration: InputDecoration(
-                hintText: 'Montant'+' '+'500.000FCFA min',
+                hintText: 'tonnage',
                 hintStyle: TextStyle(color: Colors.grey),
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Color.fromARGB(234, 230, 101, 21)),
@@ -75,9 +75,8 @@ class _MontantTransfertPageState extends State<MontantTransfertPage> {
               child: Center(
                 
                 child: ElevatedButton(
-                       
-                  
-                  onPressed: widget.isButtonEnabled ? _navigateToConfirmationPage : null,
+                
+                  onPressed: _navigateToConfirmationPage,
                   child: Text('Continuer'),
                 ),
               ),

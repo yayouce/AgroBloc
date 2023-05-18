@@ -20,58 +20,60 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Cacao Tracking',
       theme: ThemeData(fontFamily: "Poppins"),
-      home: const SplashScreen(),
+      home:ForgotPasswordScreen(),
     );
   }
 }
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+// class SplashScreen extends StatelessWidget {
+//    const SplashScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return AnimatedSplashScreen(
-      duration: 2500,
-      animationDuration: const Duration(seconds: 2),
-      splash: /*Lottie.asset('images/pic/ferm.json'),*/ Container(
-        child: Column(
-          children: [
-            Container(
-              child: Lottie.asset('images/pic/ferm.json'),
-            ),
-            Container(
-              child: Row(
-                children: [
-                  Container(
-                    child: Text(
-                      "Agro",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                          color: Colors.lightGreen),
-                    ),
-                    margin: const EdgeInsets.only(left: 175),
-                  ),
-                  Container(
-                    child: Text(
-                      " Bloc",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.orangeAccent),
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-      nextScreen: ForgotPasswordScreen(),
-      splashIconSize: 250,
+//   @override
+// //   Widget build(BuildContext context) {
+// //     // TODO: implement build
+// //     return AnimatedSplashScreen(
+// //      duration: 2500,
+// //       animationDuration: const Duration(seconds: 2),
+// //       splash: Lottie.asset('images/pic/agroBloc_animate.json'),
+// //       // Container(
+// //         // child: Column(
+// //         //   children: [
+// //         //     Container(
+// //         //        child: Lottie.asset('images/pic/agroBloc_animate.json'),
+              
+// //         //     ),
+// //         //     // Container(
+// //         //     //   child: Row(
+// //         //     //     children: [
+// //         //     //       // Container(
+// //         //     //       //   child: Text(
+// //         //     //       //     "Agro",
+// //         //     //       //     style: TextStyle(
+// //         //     //       //         fontWeight: FontWeight.bold,
+// //         //     //       //         fontSize: 15,
+// //         //     //       //         color: Colors.lightGreen),
+// //         //     //       //   ),
+// //         //     //       //   margin: const EdgeInsets.only(left: 175),
+// //         //     //       // ),
+// //         //     //       // Container(
+// //         //     //       //   child: Text(
+// //         //     //       //     " Bloc",
+// //         //     //       //     style: TextStyle(
+// //         //     //       //         fontWeight: FontWeight.bold,
+// //         //     //       //         color: Colors.orangeAccent),
+// //         //     //       //   ),
+// //         //     //       // ),
+// //         //     //     ],
+// //         //     //   ),
+// //         //     // )
+// //         //   ],
+// //         // ),
+// //       nextScreen: ForgotPasswordScreen(),
+// //       splashIconSize: 500,
+// //       );
 
-      //splashTransition: SplashTransition.sizeTransition,
-      //pageTransitionType: PageTransitionType.leftToRightWithFade,
-    );
-  }
-}
+// //       //splashTransition: SplashTransition.sizeTransition,
+// //       //pageTransitionType: PageTransitionType.leftToRightWithFade,
+
+// //   }
+// }

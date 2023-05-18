@@ -24,13 +24,12 @@ class _TransfereState extends State<Transfere> {
 
   String selectedContact = '';
   String transferAmount = '';
-  bool isButtonEnabled = false;
+
 
   void validateAmount(String value) {
     setState(() {
       transferAmount = value;
-      isButtonEnabled = int.tryParse(transferAmount) != null &&
-          int.parse(transferAmount) >= 500000;
+   
     });
   }
 
@@ -103,7 +102,7 @@ class _TransfereState extends State<Transfere> {
                           builder: (context) => MontantTransfertPage(
                             contact: contact,
                             onAmountChanged: validateAmount,
-                            isButtonEnabled: isButtonEnabled,
+                         
                           ),
                         ),
                       );

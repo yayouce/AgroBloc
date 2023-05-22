@@ -9,6 +9,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 'package:dashboard/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:dashboard/main.dart';
 
 import 'notification.dart';
 import 'planteur.dart';
@@ -17,15 +18,34 @@ import 'usines.dart';
 import 'track.dart';
 import 'fonds.dart';
 import 'contrat.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 import '../../constant.dart';
 import '../../widgets/planing_header.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  MainScreen({Key? key}) : super(key: key);
+  //ThirdRoute name = new ThirdRoute();
+  /*void getPisteurs() async {
+    var url = "http://localhost:8082/viewClient.php";
+    var response = await http.get(Uri.parse(url));
+    //var mytext = await json.decode(json.encode(response.body));
+    //var mytexts = await json.decode(response.body);
+    List lists = json.decode(response.body);
+    print(lists[lists.length - 1]['Nom_pisteur']);
+    return json.decode(response.body);
+    //print(mytexts);
+    //return mytexts;
+  }*/
 
+  int _selectedIndex = 2;
+  int vol = 0;
   @override
   Widget build(BuildContext context) {
+    /*if (true) {q
+      getPisteurs();
+    }*/
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 243, 241, 241),
       bottomNavigationBar: BottomNavigationBar(
@@ -42,15 +62,29 @@ class MainScreen extends StatelessWidget {
             label: 'Partenaires',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Compte',
+            icon: Icon(Icons.logout),
+            label: 'Déconnexion',
           ),
         ],
+        currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
+        onTap: (int vol) {
+          switch (vol) {
+            case 2:
+              if (_selectedIndex == vol) {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        child: const MyApp(),
+                        type: PageTransitionType.rightToLeft));
+              }
+          }
+        },
       ),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80),
         child: AppBar(
+          automaticallyImplyLeading: false,
           title: Image.asset(
             'images/pic/agros.png',
             height: 55,
@@ -94,6 +128,13 @@ class MainScreen extends StatelessWidget {
                       width: 280,
                       decoration: BoxDecoration(
                         color: Color.fromARGB(255, 255, 255, 255),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromARGB(255, 181, 174, 173),
+                            blurRadius: 4,
+                            offset: Offset(1, 3), // Shadow position
+                          ),
+                        ],
                         borderRadius: BorderRadius.all(Radius.circular(9)),
                       ),
                       padding: const EdgeInsets.only(
@@ -109,11 +150,18 @@ class MainScreen extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromARGB(255, 181, 174, 173),
+                          blurRadius: 4,
+                          offset: Offset(1, 3), // Shadow position
+                        ),
+                      ],
                       color: Color.fromARGB(255, 255, 255, 255),
                       borderRadius: BorderRadius.all(Radius.circular(9)),
                     ),
                     height: 230,
-                    width: 370,
+                    width: 380,
                     alignment: Alignment.center,
                     child: Column(
                       children: [
@@ -253,6 +301,18 @@ class MainScreen extends StatelessWidget {
                         left: 1.0, right: 290.0, top: 20, bottom: 5),
                   ),
                   Container(
+                    width: 380,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromARGB(255, 181, 174, 173),
+                          blurRadius: 4,
+                          offset: Offset(1, 3), // Shadow position
+                        ),
+                      ],
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.all(Radius.circular(9)),
+                    ),
                     child: Container(
                       child: Container(
                         child: Column(
@@ -283,7 +343,7 @@ class MainScreen extends StatelessWidget {
                                         height: 105,
                                         width: 105,
                                         margin: const EdgeInsets.only(
-                                            left: 13.0,
+                                            left: 10.0,
                                             right: 11.0,
                                             top: 20,
                                             bottom: 5),
@@ -302,8 +362,7 @@ class MainScreen extends StatelessWidget {
                                                           type:
                                                               PageTransitionType
                                                                   .rightToLeft,
-                                                          child:
-                                                              const ThirdRoute()));
+                                                          child: ThirdRoute()));
                                                 },
                                               ),
                                             ),
@@ -399,23 +458,23 @@ class MainScreen extends StatelessWidget {
                                   Row(
                                     children: [
                                       Container(
-                                        child: Text("Les planteurs",
+                                        child: Text("Mes planteurs",
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15)),
                                         margin: const EdgeInsets.only(
-                                            left: 15, right: 35),
+                                            left: 15, right: 25),
                                       ),
                                       Container(
-                                        child: Text("Les pisteurs",
+                                        child: Text("Mes pisteurs",
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15)),
                                         margin:
-                                            const EdgeInsets.only(right: 49),
+                                            const EdgeInsets.only(right: 32),
                                       ),
                                       Container(
-                                        child: Text("Les usines",
+                                        child: Text("Mes usines",
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15)),
@@ -444,7 +503,7 @@ class MainScreen extends StatelessWidget {
                                         height: 105,
                                         width: 105,
                                         margin: const EdgeInsets.only(
-                                            left: 13.0,
+                                            left: 10.0,
                                             right: 11.0,
                                             top: 20,
                                             bottom: 5),
@@ -565,7 +624,7 @@ class MainScreen extends StatelessWidget {
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15)),
                                         margin: const EdgeInsets.only(
-                                            left: 45, right: 35),
+                                            left: 40, right: 35),
                                       ),
                                       Container(
                                         child: Text("Suivie",
@@ -604,7 +663,7 @@ class MainScreen extends StatelessWidget {
                                         height: 105,
                                         width: 105,
                                         margin: const EdgeInsets.only(
-                                            left: 13.0,
+                                            left: 10.0,
                                             right: 11.0,
                                             top: 20,
                                             bottom: 5),
@@ -623,8 +682,7 @@ class MainScreen extends StatelessWidget {
                                                           type:
                                                               PageTransitionType
                                                                   .rightToLeft,
-                                                          child:
-                                                              const ThirdRoute()));
+                                                          child: ThirdRoute()));
                                                 },
                                               ),
                                             ),
@@ -665,8 +723,7 @@ class MainScreen extends StatelessWidget {
                                                           type:
                                                               PageTransitionType
                                                                   .rightToLeft,
-                                                          child:
-                                                              const ThirdRoute()));
+                                                          child: ThirdRoute()));
                                                 },
                                               ),
                                             ),
@@ -707,8 +764,7 @@ class MainScreen extends StatelessWidget {
                                                           type:
                                                               PageTransitionType
                                                                   .rightToLeft,
-                                                          child:
-                                                              const ThirdRoute()));
+                                                          child: ThirdRoute()));
                                                 },
                                               ),
                                             ),
@@ -725,7 +781,7 @@ class MainScreen extends StatelessWidget {
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15)),
                                         margin: const EdgeInsets.only(
-                                            left: 30, right: 65),
+                                            left: 26, right: 65),
                                       ),
                                       Container(
                                         child: Text("Néant",
@@ -743,6 +799,9 @@ class MainScreen extends StatelessWidget {
                                       ),
                                     ],
                                   ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
                                 ],
                               ),
                             )
@@ -750,7 +809,10 @@ class MainScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
                 ],
               ),
             )

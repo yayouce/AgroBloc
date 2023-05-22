@@ -17,7 +17,12 @@ class _BottomTabBarNavigationState extends State<BottomTabBarNavigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: widget.pages[_currentIndex],
-      bottomNavigationBar:BottomNavigationBar(
+      bottomNavigationBar:
+      
+      
+      
+  
+      BottomNavigationBar(
   currentIndex:_currentIndex,
   iconSize: 40,
   selectedItemColor: Color.fromARGB(255, 213, 96, 18),
@@ -45,9 +50,18 @@ class _BottomTabBarNavigationState extends State<BottomTabBarNavigation> {
        )
     ],
     onTap: (index){
-      setState(() {
-        _currentIndex=index;
-      });
+      if (index == _currentIndex) {
+            // The currently selected item is tapped again
+            // Set the currentIndex to a default value (e.g., 0) to navigate to the default screen
+            setState(() {
+              _currentIndex = 0;
+            });
+          } else {
+            // A different item is tapped
+            setState(() {
+              _currentIndex = index;
+            });
+          }
     },
   ),
     );

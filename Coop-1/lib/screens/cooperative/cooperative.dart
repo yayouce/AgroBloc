@@ -1,25 +1,24 @@
+import 'package:dashboard/screens/cooperative/planteur.dart';
 import 'package:flutter/material.dart';
 import 'package:dashboard/screens/pisteur/poids.dart';
 import 'package:dashboard/screens/pisteur/poids.dart';
 import 'package:dashboard/screens/pisteur/transfert.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
-import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
-
-
-import '../../connexion/Forgot_Password_Screen.dart';
 import 'package:dashboard/screens/pisteur/historiques.dart';
 import 'package:dashboard/screens/pisteur/identite.dart';
 
-class PisteurScreen1 extends StatefulWidget {
-  const PisteurScreen1({super.key});
+import 'package:dashboard/screens/cooperative/pisteurs.dart';
+import 'package:dashboard/screens/cooperative/usines.dart';
+
+class CoopScreen1 extends StatefulWidget {
+  const CoopScreen1({super.key});
 
   @override
-  State<PisteurScreen1> createState() => _PisteurScreen1State();
+  State<CoopScreen1> createState() => _CoopScreen1State();
 }
 
-class _PisteurScreen1State extends State<PisteurScreen1> {
+class _CoopScreen1State extends State<CoopScreen1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,41 +50,28 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          ForgotPasswordScreen()),
-                                );
-                              },
-                              child: const Icon(Icons.exit_to_app_rounded,
-                                  color: Colors.white)),
-                          /*Icon(
-                            Icons.do_not_disturb_on_total_silence_outlined,
-                            color: Colors.white,
-                          ),*/
-                          const Text(
-                            "Bienvenu Cher Pisteur",
+                          Container(
+                            child: Image(
+                              image: AssetImage("images/pic/agros.png"),
+                              height: 35,
+                            ),
+                            margin: const EdgeInsets.only(right: 5),
+                          ),
+                          Text(
+                            "Coopérative Bento",
                             style: TextStyle(
                               fontSize: 18.0,
                               fontWeight: FontWeight.w600,
                               color: Colors.white,
                             ),
                           ),
-                          LottieBuilder.network(
-                            'https://assets1.lottiefiles.com/packages/lf20_22votfwd.json',
-                            width: 35,
-                            animate: true,
-                          ),
-                          /*const Icon(
-                            Icons.notifications_active,
+                          Icon(
+                            Icons.notifications,
                             color: Colors.white,
-                          ),*/
+                          ),
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 20,
                       ),
                       Row(
@@ -110,7 +96,7 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
                             padding: EdgeInsets.all(5),
                             child: CircleAvatar(
                               backgroundImage:
-                                  AssetImage('images/pic/image1.jpeg'),
+                                  AssetImage('images/pic/usine-verte.png'),
                             ),
                           ),
                           SizedBox(
@@ -120,7 +106,7 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "M.Yao Assale",
+                                "M.Fofana Jean",
                                 style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600,
@@ -150,10 +136,10 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
                                   SizedBox(
                                     width: 10,
                                   ),
-                                  /*Icon(
+                                  Icon(
                                     Icons.remove_red_eye,
                                     color: Colors.white,
-                                  ),*/
+                                  ),
                                 ],
                               )
                             ],
@@ -185,14 +171,20 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildActivityButton(
-                              Icons.transfer_within_a_station,
-                              "Transferer",
+                              Icons.track_changes,
+                              "Pisteurs",
+                              Colors.blue.withOpacity(0.2),
+                              Color(0XFF01579B),
+                              0),
+                          buildActivityButton(
+                              Icons.person_rounded,
+                              "Planteurs",
                               Colors.cyanAccent.withOpacity(0.2),
                               Color(0XFF0097A7),
                               1),
                           buildActivityButton(
-                              Icons.history,
-                              "Historiques",
+                              Icons.warehouse,
+                              "Usines",
                               Color(0XFFD7CCC8).withOpacity(0.4),
                               Color(0XFF9499B7),
                               2),
@@ -202,7 +194,7 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
                         height: 15,
                       ),
                       Text(
-                        "Derniers achats",
+                        "Contrats",
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -211,12 +203,12 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
                       SizedBox(
                         height: 20,
                       ),
-                      buildCategoryCard("M. Kouame", 900000),
-                      buildCategoryCard("M. Bertin Ange", 500000),
-                      buildCategoryCard("M. Kouao Brou", 100000),
-                      buildCategoryCard("M. Kouao Brou", 500000),
-                      buildCategoryCard("M. Kouao Brou", 500000),
-                      buildCategoryCard("M. Kouao Brou", 500000),
+                      buildCategoryCard("Akatsuki", "En cours"),
+                      buildCategoryCard("Phantom Squad", "Terminé"),
+                      buildCategoryCard("Las Plagas", "Non respecté"),
+                      buildCategoryCard("T Veronica", "Terminé"),
+                      buildCategoryCard("Nemesis", "En cours"),
+                      buildCategoryCard("Airtreak", "A relancé"),
                     ],
                   ),
                 ),
@@ -256,22 +248,18 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
                           Row(
                             children: [
                               Text(
-                                "Reçu",
+                                "Tonnage en cours",
                                 style: TextStyle(
                                     color: Colors.grey,
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
                                 width: 10,
-                              ),
-                              Icon(
-                                Icons.arrow_upward,
-                                color: Color(0XFF00838F),
                               )
                             ],
                           ),
                           Text(
-                            "970.900\FCFA",
+                            "70.900\ T",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.0,
@@ -286,22 +274,18 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
                           Row(
                             children: [
                               Text(
-                                "Depenser",
+                                "Dernier tonnage",
                                 style: TextStyle(
                                     color: Colors.grey,
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
                                 width: 10,
-                              ),
-                              Icon(
-                                Icons.arrow_downward,
-                                color: Color(0XFF00838F),
                               )
                             ],
                           ),
                           Text(
-                            "145.010\FCFA",
+                            "145.010\ T",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.0,
@@ -315,7 +299,7 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
                     height: 10,
                   ),
                   Text(
-                    "Vous avez depensé 145.010 FCFA lors de la campagne 2020", //à voir pour la date de la compagne
+                    "Votre tonnage de la dernière campagne est de 145.010 T", //à voir pour la date de la compagne
                     style: TextStyle(
                       fontSize: 13,
                       fontStyle: FontStyle.italic,
@@ -344,20 +328,11 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
                   ),
                   Container(
                     alignment: Alignment.centerRight,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Historiques()),
-                        );
-                      },
-                      child: const Text(
-                        "Plus de détail",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Color(0XFF00B686)),
-                      ),
+                    child: Text(
+                      "Plus de détail",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color(0XFF00B686)),
                     ),
                   )
                 ],
@@ -379,7 +354,7 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
               switch (index) {
                 case 0:
                   // Affiche la page "Poids"
-                  return PisteurScreen1();
+                  return CoopScreen1();
                 case 1:
                   // Affiche la page "Transferer"
                   return Historiques();
@@ -388,7 +363,7 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
                   return Identite();
                 default:
                   // Par défaut, affiche la page "Poids"
-                  return PisteurScreen1();
+                  return CoopScreen1();
               }
             },
           ),
@@ -414,7 +389,9 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
     );
   }
 
-  Container buildCategoryCard(String title, int amount) {
+  Container buildCategoryCard(String title, String amount) {
+    String titre = title;
+    String etat = amount;
     return Container(
       padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
@@ -444,7 +421,7 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
               Row(
                 children: [
                   Text(
-                    "$amount\ FCFA",
+                    "$amount",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -495,16 +472,16 @@ class _PisteurScreen1State extends State<PisteurScreen1> {
               switch (index) {
                 case 0:
                   // Affiche la page "Poids"
-                  return const Poids();
+                  return FirstRoute();
                 case 1:
                   // Affiche la page "Transferer"
-                  return TransferPage();
+                  return ThirdRoute();
                 case 2:
                   // Affiche la page "Historiques"
                   return Historiques();
                 default:
                   // Par défaut, affiche la page "Poids"
-                  return PisteurScreen1();
+                  return CoopScreen1();
               }
             },
           ),

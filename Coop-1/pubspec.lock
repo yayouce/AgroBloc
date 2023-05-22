@@ -113,6 +113,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  curved_labeled_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: curved_labeled_navigation_bar
+      sha256: "2404496badcadcb94b6bd0d3a49bfa11a7b952c41c1b2ab917ec8d1450d132e9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.2"
+  curved_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: curved_navigation_bar
+      sha256: ea6412d00c5d83501bbf1cf9d1ac2ff11a20fbaf910c103c95ace7de82910334
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   equatable:
     dependency: transitive
     description:
@@ -142,6 +158,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_credit_card:
+    dependency: "direct main"
+    description:
+      name: flutter_credit_card
+      sha256: "1319687c72d124ce6c902c9e29cbc34f4472fe406a59fa2701d25313e70ba8c7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.6"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -150,6 +174,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.13.1"
+  flutter_spinkit:
+    dependency: "direct main"
+    description:
+      name: flutter_spinkit
+      sha256: b39c753e909d4796906c5696a14daf33639a76e017136c8d82bf3e620ce5bb8e
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.2.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -163,6 +195,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.6"
+  http:
+    dependency: "direct main"
+    description:
+      name: http
+      sha256: "5895291c13fa8a3bd82e76d5627f69e0d85ca6a30dcac95c4ea19a5d555879c2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.13.6"
+  http_parser:
+    dependency: transitive
+    description:
+      name: http_parser
+      sha256: "2aa08ce0341cc9b354a498388e30986515406668dbcc4f7c950c3e715496693b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.2"
   image:
     dependency: transitive
     description:

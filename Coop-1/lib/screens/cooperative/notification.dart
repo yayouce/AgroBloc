@@ -28,11 +28,7 @@ class SecondRoute extends StatelessWidget {
           ),
           body: Center(
               child: Container(
-                  child: /*Text(
-              "Pas de notifications",
-              style: TextStyle(fontSize: 20),
-            ),*/
-                      Column(
+                  child: Column(
             children: [
               Container(
                 child: Icon(

@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:dashboard/screens/cooperative/main_screen.dart';
+import 'package:dashboard/screens/cooperative/cooperative.dart';
+import 'package:dashboard/screens/usine/Home_page.dart';
 import 'package:dashboard/screens/usine/mains.dart';
 import 'package:dashboard/screens/pisteur/pisteur.dart';
 
@@ -166,7 +168,7 @@ class _PinCodeVerificationScreenState extends State<PinCodeVerificationScreen> {
                             obscureText: true,
                             obscuringCharacter: '*',
                             obscuringWidget: const Icon(
-                              Icons.pets,
+                              Icons.password,
                               color: Colors.blue,
                               size: 24,
                             ),
@@ -268,14 +270,20 @@ class _PinCodeVerificationScreenState extends State<PinCodeVerificationScreen> {
                                       context,
                                       PageTransition(
                                           type: PageTransitionType.rightToLeft,
-                                          child: const MainScreen()));
+                                          child: MainScreen()));
                                 } else if (currentText == "000000") {
                                   Navigator.push(
                                       context,
                                       PageTransition(
                                           type: PageTransitionType.rightToLeft,
-                                          child: const MyApp()));
+                                          child: const HomePage()));
                                 } else if (currentText == "111111") {
+                                  Navigator.push(
+                                      context,
+                                      PageTransition(
+                                          type: PageTransitionType.rightToLeft,
+                                          child: const CoopScreen1()));
+                                } else if (currentText == "222222") {
                                   Navigator.push(
                                       context,
                                       PageTransition(

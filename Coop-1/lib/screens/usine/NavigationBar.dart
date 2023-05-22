@@ -1,35 +1,35 @@
+
 import 'package:dashboard/screens/usine/Home_page.dart';
 import 'package:dashboard/screens/usine/cooperatives.dart';
 import 'package:dashboard/screens/usine/historiqueTransaction.dart';
 import 'package:flutter/material.dart';
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+
+
+
+class Navigation extends StatefulWidget {
+  const Navigation({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Navigation> createState() => _NavigationState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _NavigationState extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:HomePage(),
       bottomNavigationBar: Row(
         children: [
           buildNavBarItem(Icons.home, 0),
           buildNavBarItem(Icons.history, 1),
           buildNavBarItem(Icons.person, 2),
         ],
-      )
-
-    
+      ),
     );
   }
 
 
-
-GestureDetector buildNavBarItem(IconData icon, int index) {
+  GestureDetector buildNavBarItem(IconData icon, int index) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -75,8 +75,9 @@ GestureDetector buildNavBarItem(IconData icon, int index) {
 
 }
 
+
+
 }
 
 class _selectedItemIndex {
 }
-

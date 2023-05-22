@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:dashboard/screens/connexion/Forgot_Password_Screen.dart';
+import 'package:dashboard/connexion/Forgot_Password_Screen.dart';
 import 'package:dashboard/screens/usine/mains.dart';
 
 void main() {
   runApp(MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -24,6 +26,14 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+
 
 // class SplashScreen extends StatelessWidget {
 //    const SplashScreen({Key? key}) : super(key: key);

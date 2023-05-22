@@ -1,18 +1,20 @@
 import 'package:dashboard/constant.dart';
+import 'package:dashboard/screens/pisteur/reglerPlanteur.dart';
+import 'package:dashboard/screens/pisteur/transfert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
 import 'capturepoids.dart';
 
-class Paiement extends StatefulWidget {
-  const Paiement({super.key});
+class PaiementTest extends StatefulWidget {
+  const PaiementTest({super.key});
 
   @override
-  State<Paiement> createState() => _PaiementState();
+  State<PaiementTest> createState() => _PaiementTestState();
 }
 
-class _PaiementState extends State<Paiement> {
+class _PaiementTestState extends State<PaiementTest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +34,8 @@ class _PaiementState extends State<Paiement> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => TransferPage()));
           },
         ),
       ),
@@ -62,7 +65,7 @@ class _PaiementState extends State<Paiement> {
           ),
           buildContactRow(
             "QUANTITE",
-            "..........................kg",
+            " 12 kg",
             "",
           ),
           SizedBox(
@@ -70,7 +73,7 @@ class _PaiementState extends State<Paiement> {
           ),
           buildContactRow(
             "PRIX",
-            ".............................FCFA",
+            "1.998.200 FCFA",
             "",
           ),
           SizedBox(
@@ -82,10 +85,10 @@ class _PaiementState extends State<Paiement> {
             ),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const Capturepoids()));
+                  builder: (context) => const ReglerPlanter()));
             },
             child: const Text(
-              'Capturer le poids',
+              'Payer',
             ),
           ),
           /*Text(

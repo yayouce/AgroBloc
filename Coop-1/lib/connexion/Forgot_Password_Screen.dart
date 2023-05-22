@@ -19,7 +19,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   FormData? selected;
 
-  TextEditingController emailController = new TextEditingController();
+  final TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +114,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                 enabledBorder: InputBorder.none,
                                 border: InputBorder.none,
                                 prefixIcon: Icon(
-                                  Icons.email_outlined,
+                                  Icons.call_outlined,
                                   color: selected == FormData.Email
                                       ? enabledtxt
                                       : deaible,
@@ -144,11 +144,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                           delay: 1,
                           child: TextButton(
                               onPressed: () {
-                                Navigator.pop(context);
+                                //Navigator.pop(context);
                                 Navigator.of(context)
                                     .push(MaterialPageRoute(builder: (context) {
                                   return const PinCodeVerificationScreen(
-                                    phoneNumber: '0102756960',
+                                    phoneNumber: '',
                                   );
                                 }));
                               },

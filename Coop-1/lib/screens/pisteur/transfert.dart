@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:dashboard/screens/pisteur/pisteur.dart';
 import 'package:dashboard/screens/pisteur/paiement.dart';
+import 'package:lottie/lottie.dart';
 
+import '../../connexion/Forgot_Password_Screen.dart';
 import 'historiques.dart';
 import 'identite.dart';
 
@@ -28,17 +30,20 @@ class _TransferPageState extends State<TransferPage> {
             color: Color(0XFF00B686),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(
-                      Icons.menu,
-                      color: Colors.white,
+                    IconButton(
+                      icon: Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => PisteurScreen1()));
+                      },
                     ),
-                    Text(
+                    const Text(
                       "Transfère d'argent",
                       style: TextStyle(
                         fontSize: 18.0,
@@ -46,16 +51,17 @@ class _TransferPageState extends State<TransferPage> {
                         color: Colors.white,
                       ),
                     ),
-                    Icon(
-                      Icons.notifications,
-                      color: Colors.white,
-                    )
+                    LottieBuilder.network(
+                      'https://assets1.lottiefiles.com/packages/lf20_22votfwd.json',
+                      width: 35,
+                      animate: true,
+                    ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Row(
+                /*Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     buildExpenseBotton(
@@ -64,7 +70,7 @@ class _TransferPageState extends State<TransferPage> {
                     /*buildExpenseBotton(Icons.card_membership, "Card", false),*/
                     /*buildExpenseBotton(Icons.ev_station, "Utilities", false),*/
                   ],
-                )
+                )*/
               ],
             ),
           ),

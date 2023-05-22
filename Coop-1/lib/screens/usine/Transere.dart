@@ -29,7 +29,6 @@ class _TransfereState extends State<Transfere> {
   void validateAmount(String value) {
     setState(() {
       transferAmount = value;
-   
     });
   }
 
